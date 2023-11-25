@@ -54,8 +54,8 @@ def vegan_saus(): #Function to take the input of the vegan sausages.
 
 
 def calc(): #Function to do all the calculations and print out the information.
-    
-    #Prices for the pkgs.
+
+#Prices for the pkgs.
     normal_pkg = 20.95
     vegan_pkg = 34.95
     soda_cost = 13.95
@@ -63,6 +63,7 @@ def calc(): #Function to do all the calculations and print out the information.
 #Calculating the amount of kids to find out how many sodas and the price of the sodas.
     kids_total = saus["normal"][0] + saus["vegan"][0]
     soda_price = kids_total * soda_cost
+
 #Calc for amount of pkgs of normal and vegan sausages and then calc for price.   
     normal_packages = math.ceil(saus["normal"][1]/8)
     normal_price = normal_packages * normal_pkg
@@ -121,19 +122,4 @@ over and run it again.
 inflation, like now, when supermarkets are raising prices daily. Or one could
 show the user the way to simply change the variables in the program itself. Could
 be done for the package size of the sausages aswell.
-
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
