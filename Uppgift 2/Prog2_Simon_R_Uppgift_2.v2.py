@@ -1,4 +1,4 @@
-#Could make a simpler version as well;
+#Making a simpler version as well;
 
 import math
 
@@ -41,5 +41,9 @@ Its simple, doesn't crash and outputs in a similar manner to the way
 christian åberg has it in the compendium. 
 Takes less input. Don't need to dick around with a menu. Could simply 
 run the program all over again if anything needs to be changed amongst 
-the input from the user.
+the input from the user such as a kid getting sick or whatever. 
+One thing that wasn't required from the assignment that could be useful is again
+maybe the ability to change the prices, could be solved by showing end user how to
+change it in the program ofc but I think it would be better through input like i 
+wrote in the other one.
 """
