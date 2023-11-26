@@ -1,3 +1,6 @@
+# https://christianaberg.files.wordpress.com/2020/07/dva128___kompendium.pdf assignments:
+
+
 #3.1
 try:
     x = int(input("Num.1 > "))
@@ -19,6 +22,8 @@ try:
         print(f"{z} is smallest.")
 except:
     print("Invalid input.")
+
+
 #3.2
 
 """Assignment;
@@ -41,6 +46,7 @@ try:
         print("You sleep well when dead or not born..")
 except:
     print("Invalid input.")
+
 
 #3.3;
 
@@ -91,10 +97,78 @@ while True:
         break
 
 
+#3.4;
+
+norden = ["Denmark", "Finland", "Iceland", "Norway", "Sweden"]
+great_britain = ["England", "Irland","Scotland","Wales"]
+
+country = input("Write the name of a country. > ").capitalize()
+if country in norden:
+    print(f"{country} is a part of norden.")
+elif country in great_britain:
+    print(f"{country} is a part of great britain.")
+else:
+    print(f"{country} is not part of either norden or storbritanien")
 
 
+#4.1;
+
+"""Assignment;
+Take input one number at a time.
+If number is not negative then add it into a list.
+If negative, end program. Don't add the negative number.
+
+Output:
+print lowest number in the list.
+print highest number in the list.
+print out the sum of all the numbers.
+print out average value, sum of list / len of list.
+"""
+
+numbers = []
+sum = 0
+while True:
+    try:
+        number = input("Type a number; > ")
+        if float(number) > 0:
+            numbers.append(float(number))
+            sum += float(number)
+        else:
+            # Sorting the list of numbers and then printing the first and
+            # last, and sum of list divided by length of the list.
+            numbers.sort()
+            print(f"Lowest number is; {numbers[0]}")
+            print(f"Highest number is; {numbers[-1]}")
+            print(f"The sum of all numbers is; {sum}")
+            print(f"The average value of the numbers is; {(sum/len(numbers))}")
+            break
+    except:
+        print("Must input a number.")
 
 
+#4.2
 
+"""Assignment;
+Input number.
+Multiply it three times while printing.
+Ask if continue or not.
 
+Output;
+Print print the multiplikation.
+"""
 
+multi = 1
+choice = int(input("What number; > "))
+while True:
+    print(choice * multi)
+    multi += 1
+    print(choice * multi)
+    multi += 1
+    print(choice * multi)
+    multi += 1
+    cont = input("Continue? Y/N > ").upper()
+    if cont == "Y":
+        continue
+    else:
+        print("Closing.")
+        break
