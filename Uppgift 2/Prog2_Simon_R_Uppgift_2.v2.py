@@ -1,11 +1,36 @@
-#Making a simpler version as well;
+"""Korvkollen;
+Defining what we need;
+-Need to establish how many of each sausage we need.
+-Need to calculate how many packages of each sausage.
+-Need to calculate how much the total price is.
+
+Output we want;
+-How many packages of each sausage we need to buy.
+
+Normal = 8 per pkg
+Vegan = 4 per pkg.
+
+-How many drinks we need
+1 per kid.
+
+-Total of the price.
+
+Price per pkg:
+Normal = 20.95 per pkg
+Vegan = 34.95 per pkg
+Dryck = 13.95 per pkg
+"""
 
 import math
 
-# Prices here so user can change it if needed;
+# Prices here so user can change them if needed;
 normal_cost = 20.95
 vegan_cost = 34.95
 soda_cost = 13.95
+
+# Package sizes here so they can be changed if needed;
+normal_pkg_size = 8
+vegan_pkg_size = 4
 
 inputs = {"normal": 0, "vegan": 0}
 while True:
@@ -23,8 +48,8 @@ while True:
         vegan_amount = (vegan_2 * 2) + (vegan_3 * 3)
         amount_soda = normal_2 + normal_3 + vegan_2 + vegan_3
         # Splitting amounts on pkg size.
-        normal_packs = math.ceil(normal_amount / 8)
-        vegan_packs = math.ceil(vegan_amount / 4)
+        normal_packs = math.ceil(normal_amount / normal_pkg_size)
+        vegan_packs = math.ceil(vegan_amount / vegan_pkg_size)
         total = ((normal_packs * normal_cost) + (vegan_packs * vegan_cost) + (amount_soda * soda_cost))
         print("-" * 20)
         print("Shopping list; ")
@@ -36,14 +61,9 @@ while True:
     except:
         print("Need to input a whole number.")
 
-"""After making this one, I think this one is more accurate actually.. 
-Its simple, doesn't crash and outputs in a similar manner to the way 
-christian åberg has it in the compendium. 
-Takes less input. Don't need to dick around with a menu. Could simply 
-run the program all over again if anything needs to be changed amongst 
-the input from the user such as a kid getting sick or whatever. 
-One thing that wasn't required from the assignment that could be useful is again
-maybe the ability to change the prices, could be solved by showing end user how to
-change it in the program ofc but I think it would be better through input like i 
-wrote in the other one.
+""" 
+One thing that wasn't required from the assignment that could be useful is the
+ability to change the prices, could be solved by showing end user how to
+change it in the program ofc but I think it would be better through input.
+Same thing with the sizes of the packages for the sausages.
 """
