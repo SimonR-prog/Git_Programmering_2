@@ -11,7 +11,7 @@ Output;
 -Wether they need to go higher or lower.
 """
 
-#Importing random to generate the random number.
+# Importing random to generate the random number.
 import random
 
 # Random variable outside loop to only generate once.
@@ -19,18 +19,16 @@ rand = random.randint(1,99)
 guess = 0
 valid_range = range(1,100)
 while True:
-    try: # Try loop to catch invalid input, valueerror.
+    try: # Try except to catch invalid input, valueerror.
         choice = int(input("Pick a number between 1 and 99. > "))
         # If choice in the range between 1 and 99;
         if choice in valid_range:
-
-
             # increasing for every valid guess;
             guess += 1
             if choice != rand:
-                if choice > rand: #If players choice is higher than the random number.
+                if choice > rand: # If players choice is higher than the random number.
                     print("Need to guess lower.")
-                else: #If players choice is lower than the random number.
+                else: # If players choice is lower than the random number.
                     print("Need to guess higher.")
             else: #Correct guess;
                 print(f"Congrats!\nThe right number was {rand}.\nYou guessed {guess} times.")
