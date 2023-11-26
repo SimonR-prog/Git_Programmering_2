@@ -28,11 +28,10 @@ normal_cost = 20.95
 vegan_cost = 34.95
 soda_cost = 13.95
 
-# Package sizes here so they can be changed if needed;
+# Package sizes here so user can change them if needed;
 normal_pkg_size = 8
 vegan_pkg_size = 4
 
-inputs = {"normal": 0, "vegan": 0}
 while True:
     print("  .:Korvkollen:.")
     print("-" * 20)
