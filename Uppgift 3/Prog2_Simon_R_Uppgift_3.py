@@ -19,10 +19,9 @@ rand = random.randint(1,99)
 guess = 0
 valid_range = range(1,100)
 while True:
-    try: #Try loop to catch invalid input, valueerror.
+    try: # Try loop to catch invalid input, valueerror.
         choice = int(input("Pick a number between 1 and 99. > "))
-        #if choice > 0 and choice < 100: # Making sure the choice is in the correct range.
-        #Can change line above for the one below this and it works;
+        # If choice in the range between 1 and 99;
         if choice in valid_range:
 
 
@@ -31,7 +30,7 @@ while True:
             if choice != rand:
                 if choice > rand: #If players choice is higher than the random number.
                     print("Need to guess lower.")
-                elif choice < rand: #If players choice is lower than the random number. 
+                else: #If players choice is lower than the random number.
                     print("Need to guess higher.")
             else: #Correct guess;
                 print(f"Congrats!\nThe right number was {rand}.\nYou guessed {guess} times.")
