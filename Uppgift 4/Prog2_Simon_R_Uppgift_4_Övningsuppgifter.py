@@ -25,6 +25,60 @@ except ValueError:
     print("ValueError. Must input a number.")
 
 # 5.3;
+# Make program with unknown amounts of inputs until user types exit.
+# When exit; print amount of numbers added, total sum of the numbers
+# and average value of numbers added.
+
+sum = 0
+amount = 0
+print("Type numbers to add. Type exit to end.")
+while True:
+    number = input("> ").lower()
+    if number == "exit":
+        print("Ending.")
+        break
+    else:
+        try:
+            sum += int(number)
+            amount += 1
+        except ValueError:
+            print("ValueError. Must input a whole number.")
+try:
+    print("Amount of numbers added; ", amount)
+    print("Sum of the numbers added; ", sum)
+    print("Average value of the numbers added; ", sum/amount)
+except ZeroDivisionError:
+    print("Can't divide by zero.")
+
+
+# 6.2;
+# Input a string, use another input to ask for a letter.
+# Count the amount of times the letter is in the string.
+# Have to use while loop, no for loop.
+
+string = input("Which string would you like to use? > ")
+letter = input("Which letter would you like to count? > ")
+string_len = len(string)
+i = 0
+try:
+    check_string = str(string)
+    check_letter = str(letter)
+    while i < string_len:
+        letter_count = check_string.count(check_letter)
+        break
+except ValueError:
+    print("ValueError. Must input string in the inputs.")
+print(letter_count)
+
+
+# 6.3;
+# 
+
+
+
+
+
+
 
 
 
