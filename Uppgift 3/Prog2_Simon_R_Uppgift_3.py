@@ -37,29 +37,3 @@ while True:
             print("Must pick a number between 1 and 99.")
     except:
         print("Need to type a whole number.")
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
