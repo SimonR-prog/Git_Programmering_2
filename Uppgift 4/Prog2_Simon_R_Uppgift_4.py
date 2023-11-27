@@ -17,12 +17,11 @@ after. string.sort()
 
 6. Through input, user can check if something is in list. If x in list = response
 if x not in list = respone + ask if user wants to add it. Print list yadayada..
-
-
 """
 
+#8.2
 
-#Todo_1;
+#8.1;
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo[:3])
 #or
@@ -30,14 +29,14 @@ print(todo[0])
 print(todo[1])
 print(todo[2])
 
-#Todo_2;
+#8.2;
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo)
 add = input("What would you like to add to the to do? > ").capitalize()
 todo.append(add)
 print(todo)
 
-#Todo_3;
+#8.3;
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo)
 try:
@@ -47,7 +46,7 @@ except:
     print("Must input a whole number for which index you want to remove.")
 print(todo)
 
-#Todo_4;
+#8.4;
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo)
 rem = input("Which one would you like to remove? > ").capitalize()
@@ -58,7 +57,7 @@ else:
     print(f"{rem} is not in to do.")
 print(todo)
 
-#Todo_5;
+#8.5;
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo)
 add = input("What would you like to add to the list? > ").capitalize()
@@ -67,7 +66,7 @@ print(f"{add} has been added.")
 todo.sort()
 print(todo)
 
-#Todo_6;
+#8.6;
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo)
 add = input("What to do? > ").capitalize()
