@@ -1,6 +1,5 @@
 """Higher lower;
 Defining assignement;
-
 -Generate a random number as value for a variable.
 -Count how many guesses the player does.
 -If guess is too high or too low, print a message which way they need to go.
@@ -30,10 +29,16 @@ while True:
                     print("Need to guess lower.")
                 else: # If players choice is lower than the random number.
                     print("Need to guess higher.")
-            else: #Correct guess;
+            else: # Correct guess;
                 print(f"Congrats!\nThe right number was {rand}.\nYou guessed {guess} times.")
                 break
         else: 
             print("Must pick a number between 1 and 99.")
-    except:
-        print("Need to type a whole number.")
+    except ValueError:
+        print("ValueError. Need to type a whole number.")
+
+
+""" 
+Don't really know what to evaluate tbh.. Could maybe change the while 
+loop to limit the amount of times the person is allowed to guess.
+"""
