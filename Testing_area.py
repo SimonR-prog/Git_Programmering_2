@@ -12,6 +12,8 @@ Allow person to check if something is on the list.
 
 import os
 
+todo = ["Städa", "Handla", "Plugga", "Ge blod"]
+
 def clear_console(): # Function to clear the console.
     if os.name == 'nt':
         os.system('cls')
@@ -20,6 +22,7 @@ def clear_console(): # Function to clear the console.
 
 
 def print_list(): # Function to print the to do list..
+    todo.sort()
     list_index = 1
     print("*" * 15)
     print("To do list;".center(15))
@@ -33,21 +36,39 @@ def print_list(): # Function to print the to do list..
 
 
 def remove_todo():
-    choice = input("What would you like to remove? \n(Can type the thing or use the number next to it.) \n Choose; > ").lower()
+    print("What would you like to remove? \n(You can type the name of the thing or use the number next to it.)")
+    choice = input(" Choose; > ").lower()
+# Need to check if choice is a number or a string.
+# Maybe check if choice is in list first. If so it is a valid string.
+#
+    if choice in todo:
+        todo.remove(choice)
+    else: # If choice not in list, it is either an invalid input or a number.
+        try:
+            pop = (int(choice) - 1)
+            print(f"Removing {choice}")
+            todo.pop(pop)
+        except:
+            print(f"{choice} is not in list.")
+
+# Must add some timesleeps since the console gets cleared or add something to continue..
 
 def add_todo():
     choice = input("What would you like to add to your to do list? > ")
-    # Need to check so that the string is not a number or whatever..
     if choice in todo:
         print(f"{choice} is already in the list.")
+    else:
+        print(f"Adding {choice} to the list.")
+        todo.append(choice.capitalize())
+        todo.sort()
+
 
 while True:
-    # Starting list;
-    todo = ["Städa", "Handla", "Plugga", "Ge blod"]
+    todo.sort()
     clear_console()
     print_list()
     print("*"*15)
-    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n4.Close. \nChoose; > ")
+    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n4. Close. \nChoose; > ")
     if choice == "1":
         add_todo()
     elif choice == "2":
