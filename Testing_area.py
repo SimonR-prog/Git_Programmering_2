@@ -8,6 +8,7 @@ Allow person to remove things by index or name of thing.
     Ask them for a y/n before removing.
 Allow person to add things to the list.
 Allow person to check if something is on the list.
+    If not on list, allow user to add it.
 """
 
 import os
@@ -45,7 +46,10 @@ def remove_todo(): # Function to remove things from to do list with either name 
             print(f"Removing {todo[pop]}")
             todo.pop(pop)
         except:
-            print(f"{choice} is not in list.")
+            if choice.isnumeric():
+                print(f"There is no number {choice} on the to do list.")
+            else:
+                print(f"{choice} is not on the list.")
 
 
 def add_todo(): # Function to add things into the to do list with append incase it isn't already there.
@@ -55,23 +59,37 @@ def add_todo(): # Function to add things into the to do list with append incase 
     else:
         print(f"Adding {choice} to the list.")
         todo.append(choice.capitalize())
-        todo.sort()
+
+
+def check_list():
+    check_for = input("Which item are you looking for on your list? > ").capitalize()
+    if check_for in todo:
+        print(f"Yes, {check_for} is on your to do list.")
+    else:
+        print(f"{check_for} is not on the to do list.")
+        choice = input("Would you like to add it? Y/N > ").lower()
+        if choice == "yes" or choice == "y":
+            todo.append(check_for.capitalize())
+        else:
+            print("Alright.")
 
 
 while True:
-    todo.sort()
     clear_console()
     print_list()
     print("*"*15)
-    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n3. Close. \nChoose; > ")
+    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n3. Check for item on list. \n4. Close. \nChoose; > ")
     if choice == "1":
         add_todo()
     elif choice == "2":
         remove_todo()
     elif choice == "3":
+        check_list()
+    elif choice == "4":
         print("Ending program.")
         break
     else:
         print("Invalid input.")
+    # Adding this to make sure people have time to read the messages.
     enter = input("Press enter to continue.")
 
