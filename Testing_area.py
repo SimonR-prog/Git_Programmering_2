@@ -27,33 +27,28 @@ def print_list(): # Function to print the to do list..
     print("*" * 15)
     print("To do list;".center(15))
     for i in todo:
-
         # Convert the int to string to concatenate.
         # Adding number before each to use later for removing indexes.
-
         print(str(list_index) + ". " + i)
         list_index += 1
 
 
-def remove_todo():
+def remove_todo(): # Function to remove things from to do list with either name of thing or index.
     print("What would you like to remove? \n(You can type the name of the thing or use the number next to it.)")
-    choice = input(" Choose; > ").lower()
-# Need to check if choice is a number or a string.
-# Maybe check if choice is in list first. If so it is a valid string.
-#
+    choice = input(" Choose; > ").capitalize()
     if choice in todo:
         todo.remove(choice)
+        print(f"Removing {choice}")
     else: # If choice not in list, it is either an invalid input or a number.
         try:
             pop = (int(choice) - 1)
-            print(f"Removing {choice}")
+            print(f"Removing {todo[pop]}")
             todo.pop(pop)
         except:
             print(f"{choice} is not in list.")
 
-# Must add some timesleeps since the console gets cleared or add something to continue..
 
-def add_todo():
+def add_todo(): # Function to add things into the to do list with append incase it isn't already there.
     choice = input("What would you like to add to your to do list? > ")
     if choice in todo:
         print(f"{choice} is already in the list.")
@@ -68,29 +63,15 @@ while True:
     clear_console()
     print_list()
     print("*"*15)
-    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n4. Close. \nChoose; > ")
+    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n3. Close. \nChoose; > ")
     if choice == "1":
         add_todo()
     elif choice == "2":
         remove_todo()
     elif choice == "3":
-        continue
-    elif choice == "4":
+        print("Ending program.")
         break
     else:
         print("Invalid input.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    enter = input("Press enter to continue.")
 
