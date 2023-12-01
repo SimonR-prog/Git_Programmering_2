@@ -28,7 +28,7 @@ def print_list(): # Function to print the to do list..
     print("*" * 15)
     print("To do list;".center(15))
     for i in todo:
-        # Convert the int to string to concatenate.
+        # Converting the int to string to concatenate.
         # Adding number before each to use later for removing indexes.
         print(str(list_index) + ". " + i)
         list_index += 1
@@ -61,17 +61,17 @@ def add_todo(): # Function to add things with append if it isn't on the list.
         todo.append(choice.capitalize())
 
 
-def check_list():
+def check_list(): # Function for check for something on the list and adding it if it isn't there.
     check_for = input("Which item are you looking for on your list? > ").capitalize()
     if check_for in todo:
         print(f"Yes, {check_for} is on your to do list.")
     else:
         print(f"{check_for} is not on the to do list.")
         choice = input("Would you like to add it? Y/N > ").lower()
-        if choice == "yes" or choice == "y":
+        if choice in ["y", "yes"]:
             todo.append(check_for.capitalize())
         else:
-            print("Alright.")
+            print("Alright, skipping.")
 
 
 while True:

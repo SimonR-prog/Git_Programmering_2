@@ -35,8 +35,8 @@ print(rad)
 todo = ["Städa","Handla","Plugga","Ge blod"]
 print(todo)
 try:
-    pop = int(input("Which index do you want to remove? > "))
-    todo.pop(pop)
+    delete = int(input("Which index do you want to remove? > "))
+    del todo[delete]
 except ValueError:
     print("Must input a whole number for which index you want to remove.")
 print(todo)
