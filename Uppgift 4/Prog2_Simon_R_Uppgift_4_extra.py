@@ -75,7 +75,7 @@ def check_list():
 
 
 while True:
-    # Running clear console and list printing functions from start.
+    # Running clear console and list printing functions from start. the others on command.
     clear_console()
     print_list()
     print("*"*15)
