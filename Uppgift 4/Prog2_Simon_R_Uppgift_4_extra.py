@@ -41,18 +41,18 @@ def remove_todo(): # Function to remove things from to do list with either name 
         todo.remove(choice)
         print(f"Removing {choice}")
     else: # If choice not in list, it is either an invalid input or a number.
-        try:
+        try: # Valid input that is a number.
             pop = (int(choice) - 1)
             print(f"Removing {todo[pop]}")
             todo.pop(pop)
         except:
-            if choice.isnumeric():
+            if choice.isnumeric(): # Invalid input that is a number.
                 print(f"There is no number {choice} on the to do list.")
-            else:
+            else: # Invalid input that is a string.
                 print(f"{choice} is not on the list.")
 
 
-def add_todo(): # Function to add things into the to do list with append incase it isn't already there.
+def add_todo(): # Function to add things with append if it isn't on the list.
     choice = input("What would you like to add to your to do list? > ")
     if choice in todo:
         print(f"{choice} is already in the list.")
@@ -75,10 +75,11 @@ def check_list():
 
 
 while True:
+    # Running clear console and list printing functions from start.
     clear_console()
     print_list()
     print("*"*15)
-    choice = input("  Command; \n1. Add thing to do. \n2. Remove a thing from to do. \n3. Check for item on list. \n4. Close. \nChoose; > ")
+    choice = input("  Command; \n1. Add a thing to do. \n2. Remove a thing from to do. \n3. Check for item on list. \n4. Close. \nChoose; > ")
     if choice == "1":
         add_todo()
     elif choice == "2":
