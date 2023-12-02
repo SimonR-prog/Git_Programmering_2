@@ -90,31 +90,49 @@ while True:
 # Have a string inside a txtfile that can be changed.
 # Import it from the txtfile to a variable and then print the var with the rest of the sign.
 
+def clear_console(): # Function to clear the console.
+    if os.name == 'nt':
+        os.system('cls')
+    elif os.name == 'posix':
+        os.system('clear')
+
 def importer(): # Function to read the file and extract the variabel value to later print.
-    with open(sign.txt) as f:
+    with open('sign.txt') as f:
         name = f.read()
     roadsign(name)
 
-
 def roadsign(name):
     print("|","-" * 20,"|")
-    print("|",name.center(18),"|")
-
+    print("|","Welcome to", name,"|")
+    print("|","-" * 20,"|")
+    print("C | Change sign. \nE | Exit program.")
 
 def changer():
-    
-
-
+    new_name = input("What would you like to change it to? > ")
+    with open('sign.txt', 'w') as f:
+        f.write(new_name)
 
 while True:
+    clear_console()
+    # Calling function to print roadsign.
+    importer()
+    command = input("> ").upper()
+    if command in ["C", "CHANGE"]:
+        changer()
+    elif command in ["E","EXIT"]:
+        print("Exiting program.")
+        break
+    else:
+        print("Invalid command.")
+    enter = input("Press enter to continue.")
 
 
+# 10.2:
 
-
-
-
-
-
+with open('Uppgift 5/numbers.csv') as f:
+    number_list = f.read()
+    for i in range(10):
+        print(i, ";", number_list.count(str(i)))
 
 
 
