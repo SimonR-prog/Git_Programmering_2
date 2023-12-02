@@ -41,6 +41,7 @@ for i in todo:
 
 # 9.5;
 import os
+cars = ["Mercedes","Volvo","Toyota"]
 
 def clear_console(): # Function to clear the console.
     if os.name == 'nt':
@@ -56,20 +57,23 @@ def printing(): # Function to print list.
     print(".:MENU:.".center(14))
 
 def push():
-
-
+    add = input("What would you like to push? > ").capitalize()
+    if add not in cars:
+        print(f"Adding {add}")
+        cars.append(add)
+    else:
+        print(f"{add} is already on the list.")
 
 def pull():
+    pop = cars.pop()
+    print(f"Removing {pop}")
 
-    
-
-cars = ["Mercedes","Volvo","Toyota"]
 while True:
     # Clearing console and printing list in beginning.
     clear_console()
     printing()
     # Taking input from user;
-    command = input("push | Push element to stack. \npull | Pull element from stack \nexit | Exit program.").lower()
+    command = input("push | Push element to stack. \npull | Pull element from stack \nexit | Exit program. \nCommand > ").lower()
     if command in ["push","pull","exit"]:
         if command == "push":
             push()
@@ -80,6 +84,43 @@ while True:
     else:
         print("Invalid command. Must choose from the list.")
     enter = input("Press enter to continue.")
+
+# 10.1:
+# Create a roadsign with a text part that can be changed.
+# Have a string inside a txtfile that can be changed.
+# Import it from the txtfile to a variable and then print the var with the rest of the sign.
+
+def importer(): # Function to read the file and extract the variabel value to later print.
+    with open(sign.txt) as f:
+        name = f.read()
+    roadsign(name)
+
+
+def roadsign(name):
+    print("|","-" * 20,"|")
+    print("|",name.center(18),"|")
+
+
+def changer():
+    
+
+
+
+while True:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
