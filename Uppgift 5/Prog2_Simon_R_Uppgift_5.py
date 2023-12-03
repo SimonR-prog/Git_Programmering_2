@@ -31,7 +31,7 @@ def menu(int_list,sum): # Function to print the menu, previous numbers, the sum 
     print('Typing "0" will close program.')
     print("-"*20)
 
-def export(number): # Function to add the new number to the file.
+def export(number): # Function to add the new number to list and then write it to the file.
     with open('memorizer.json') as f:
         int_list = f.read()
         int_list = json.loads(int_list)
