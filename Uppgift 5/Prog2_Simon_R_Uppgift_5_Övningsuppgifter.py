@@ -135,6 +135,108 @@ with open('Uppgift 5/numbers.csv') as f:
         print(i, ";", number_list.count(str(i)))
 
 
+# 10.3:
+
+def clear_console(): # Function to clear the console.
+    if os.name == 'nt':
+        os.system('cls')
+    elif os.name == 'posix':
+        os.system('clear')
+
+def menu(): # Function to print the menu with options.
+    print("People database.")
+    print("-"*20)
+    print("get_id - Get Person by ID")
+    print("scan_f - List people by FORENAME")
+    print("scan_s - List people by SURNAME")
+    print("exit - Exit program")
+    print("-"*20)
+
+def person_id():
+    person_id = input("ID = ")
+    with open('Uppgift 5/database.csv') as f:
+        lines = f.readlines()
+        try:
+            person = lines[int(person_id)+1]
+            person_info = person.split(",")
+            print("ID;", person_info[0])
+            print("Forename;", person_info[1])
+            print("Surname;", person_info[2])
+            print("Gender;", person_info[3])
+            print("Year;", person_info[4])
+        except ValueError:
+            print("ValueError. Must input a whole number.")
+
+def search(): # Function to search for a name and then print all with that name.
+    search_name = input("Name = ").capitalize()
+    with open('Uppgift 5/database.csv') as f:
+        lines = f.readlines()
+        if search_name.isalpha(): # Will probably not work with names that have "-" in them.. Maybe need to change it to is not isnumeric..
+            for i in lines:
+                if search_name in i:
+                    remove_newline = i.replace("\n","")
+                    name = remove_newline.replace(",",", ")
+                    print(name)
+        else:
+            print("Must input a name.")
+
+while True:
+    clear_console()
+    menu()
+    command = input("> ")
+    print("-"*20)
+    if command in ["get_id", "scan_f", "scan_s", "exit"]:
+        if command == "get_id":
+            person_id()
+        elif command in ["scan_f", "scan_s"]:
+            search()
+        else:
+            print("Ending program.")
+            break
+    else:
+        print("Invalid command.")
+    print("-"*20)
+    enter = input("Press enter to continue. ")
+
+
+import json
+# 11.1:
+
+random_stuff = [1337, 13.37, 'Ååh Yää!']
+random_stuff = json.dumps(random_stuff)
+print(random_stuff)
+
+# 11.2:
+
+my_chars = '["abc","\u00e5\u00e4\u00f6", "123"]'
+my_chars = json.loads(my_chars)
+print(my_chars)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
