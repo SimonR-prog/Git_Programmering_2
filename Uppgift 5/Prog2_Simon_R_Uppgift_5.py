@@ -45,7 +45,7 @@ while True:
     clear_console()
     # Starts the counter function;
     counter()
-    # Try/except to catch ValueErrors.
+    # Try/except to catch ValueErrors. (If number is a float or a str.)
     try:
         number = int(input("> "))
         if number != 0: # If number isn't a 0 it gets sent on to export function.
