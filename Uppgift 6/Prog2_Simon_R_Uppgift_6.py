@@ -29,7 +29,7 @@ def changer(choice): # Function to remove, add or change a note.
         if key in notes_dict: # Check for it's existence
             print(f"{key} - {notes_dict[key]} has been removed.")
             del notes_dict[key]
-            exporter(notes_dict)  # Updates the dict after change has been made.
+            exporter(notes_dict)  # Sends the changed dict to the exporter to re-write the file.
         else:
             print("There is no such note.")
     elif choice == "add":
@@ -56,7 +56,7 @@ def changer(choice): # Function to remove, add or change a note.
 
 def viewer(): # Function to print the value of the key the person chooses.
     notes_dict = importer()
-    if len(notes_dict) > 0:
+    if len(notes_dict) > 0: # Making sure list aint empty before taking input on what to show.
         print("Would you like to view all or a specific note? (All/Spec)")
         choice = input("> ").lower()
         if choice == "all":
@@ -81,19 +81,22 @@ def menu(): # Function to print the menu, the list of keys and the instructions.
     print("*"*20)
     print("Notes".center(20))
     print("*"*20)
-    for i in notes_dict:
+    for i in notes_dict: # For loop to print the dictionary keys.
         print(i)
     print("*"*20)
     instructions = {"View":"View note", "Add":"Add note","Remove":"Remove note","Change":"Change note text","Exit":"End program"}
     print("Instructions".center(20))
     print("*"*20)
-    for i in instructions:
+    for i in instructions: # For loop to print instruction dict keys and their values.
         print(i + " - " + instructions[i])
     print("*"*20)
 
 while True:
+    # Clearing console.
     clear_console()
+    # Printing menu and instructions.
     menu()
+    # Taking input and moving program along to different functions.
     menu_choice = ["view","add","remove","change","show","exit"]
     choice = input("> ").lower()
     if choice in menu_choice:
@@ -107,4 +110,5 @@ while True:
     else:
         print("Must choose from the list of instructions.")
     print("-" * 20)
+    # Enter input to pause program to let people read before loop restarts.
     enter = input("Press enter to continue.")
