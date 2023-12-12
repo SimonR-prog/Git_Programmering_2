@@ -14,17 +14,10 @@ try:
     len_factor = len(response_dict['factors'])
     print(len_factor)
     fac = response_dict['factors']
-    if len_factor <= 1:
+    if len_factor == 1:
         print(f"{number}'s factor is {response_dict['factors']}")
-    elif len_factor == 2:
-        print(f"{number}'s factors are {response_dict['factors'][0]} and {response_dict['factors'][1]}.")
-    elif len_factor > 2:
-        factors = ""
-        length = 0
-        while length < (len_factor - 2):
-            factors += str(response_dict['factors'][length]) + ", "
-            length += 1
-        print(f"{number}'s factors are; " + factors + str(fac[-2]) + " and " + str(fac[-1]) + ".")
+    elif len_factor > 1:
+        print(f"{number}'s factor is " + ", ".join(response_dict['factors'][0:-1]) + f" and {response_dict['factors'][-1]}.")
     if response_dict['even'] == True and response_dict['prime'] == True:
         print(f"{number} is even. And it is a prime number.")
     elif response_dict['even'] == False and response_dict['prime'] == True:
