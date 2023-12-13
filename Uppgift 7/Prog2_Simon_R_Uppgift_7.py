@@ -4,8 +4,6 @@
 
 import os
 import requests
-import json
-
 
 def clear_console(): # Function to clear the console.
     if os.name == 'nt':
@@ -13,52 +11,44 @@ def clear_console(): # Function to clear the console.
     elif os.name == 'posix':
         os.system('clear')
 
-def menu(): # Function to make a menu in console. Imports the dictionary and prints keys.
+def menu(): # Function to make a menu in console and show options for user to pick from.
     artist_dict = artists()
     print("*"*30)
-    print(">-<> Artist info! <>-<".center(30))
-    print("*" * 30)
-    print("Artist list;".center(30))
+    print(">-<> Artist information! <>-<".center(30))
     print("*"*30)
-    for i in artist_dict:
-        print(i)
+    for i in artist_dict['artists']:
+        print(i['name'])
     print("*" * 30)
-    print("Menu; \n1. Get information on an artist. \n2. Exit.")
+    print("Instructions;".center(30))
+    print(" Type the name of an artist. \n Or type exit to end program.")
     print("*" * 30)
 
-def artists():
-    # Function to import the dictionary, extract the
-    # necessary information and put it in a dictionary.
+def artists(): # Function to get the artists and the ids.
     url = 'https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/'
     r = requests.get(url)
-    text = json.loads(r.text)
-    # Remakes the dictionary everytime it runs which renews the ID's.
-    artist_dict = {}
-    x = 0
-    for i in text['artists']:
-        artist_dict[text['artists'][x]['name']] = text['artists'][x]['id']
-        x += 1
+    artist_dict = r.json()
     return artist_dict
 
-def id_num(): # Function to get the ID number of artist.
-    name = input("Which artist? > ").title()
+def id_num(name): # Function to get the ID number of artist.
+    id = ""
     artist_dict = artists()
-    if name in artist_dict:
-        id = artist_dict[name]
-        information(id)
-    else:
-        print("That artist is not on the list.")
+    for i in artist_dict['artists']:
+        if name == i['name']:
+            id = i['id']
+            information(id)
+    if id == "":
+        print("There is no such artist in the list.")
 
 def information(id): # Function to extract the information and create variables.
     url = 'https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/' + id
     r = requests.get(url)
     artist_info = r.json()
-
     # Creating variables;
     genre = artist_info['artist']['genres']
     active = artist_info['artist']['years_active']
     members = artist_info['artist']['members']
     name = artist_info['artist']['name']
+    # Sends the information in lists to printer function.
     printer(genre, active, members, name)
 
 def printer(genre, active, members, name): # Function to print the information depending on len of info.
@@ -81,18 +71,14 @@ while True:
     clear_console()
     # Prints out menu with artist names and menu options.
     menu()
-    menu_choice = input(" > ")
-    if menu_choice == "1":
-        id_num()
-    elif menu_choice in ["2", "Exit","exit"]:
+    name = input("Which artist? > ").title()
+    if name != "Exit":
+        id_num(name)
+    elif name == "Exit":
         print("Ending program.")
         break
-    else:
-        print("Invalid input.")
     # Enter input for pause.
     print("*"*30)
     enter = input("Press enter to continue.. ")
-
-
 
 
