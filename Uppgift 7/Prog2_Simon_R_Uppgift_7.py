@@ -36,6 +36,7 @@ def id_num(name): # Function to get the ID number of artist.
         if name == i['name']:
             id = i['id']
             information(id)
+    # Id only contains anything if the name exists in the api info.
     if id == "":
         print("There is no such artist in the list.")
 
