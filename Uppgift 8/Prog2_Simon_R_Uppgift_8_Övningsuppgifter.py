@@ -114,6 +114,24 @@ for i in teams:
     print(i, teams[i])
 
 
+# 14.5:
+
+# Take the dictionary above and make it so that the team names are the value of a key.
+# Each team and its result is going to be a dictionary. All of them gathered in a list.
+
+list = []
+
+for i in teams:
+    teams[i]["country"] = i
+    list.append(teams[i])
+
+print(list)
+
+
+
+
+
+
 
 
 
