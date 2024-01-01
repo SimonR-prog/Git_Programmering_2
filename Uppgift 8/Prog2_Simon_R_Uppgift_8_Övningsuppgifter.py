@@ -109,7 +109,6 @@ add_game ("Serbia", 1, "Switzerland", 2)
 add_game ("Serbia", 0, "Brazil", 2)
 add_game ("Switzerland", 2, "Costa Rica", 2)
 
-
 for i in teams:
     print(i, teams[i])
 
@@ -118,20 +117,24 @@ for i in teams:
 
 # Take the dictionary above and make it so that the team names are the value of a key.
 # Each team and its result is going to be a dictionary. All of them gathered in a list.
+# need to make a new dict and add i as a value to country and then
+# update the dict with the rest of it and then append it to the list.
 
-list = []
+def make_list(teams):
+    list = []
 
-for i in teams:
-    teams[i]["country"] = i
-    list.append(teams[i])
+    for i in teams:
+        teams_2 = {}
+        teams_2["country"] = i
+        teams_2.update(teams[])
+        list.append(teams_2)
 
-print(list)
+    teams = list
+    return teams
 
-
-
-
-
-
+make_list(teams)
+print("-"*20)
+print(make_list(teams))
 
 
 
