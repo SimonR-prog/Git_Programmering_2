@@ -115,31 +115,46 @@ for i in teams:
 
 # 14.5:
 
-# Take the dictionary above and make it so that the team names are the value of a key.
-# Each team and its result is going to be a dictionary. All of them gathered in a list.
-# need to make a new dict and add i as a value to country and then
-# update the dict with the rest of it and then append it to the list.
-
-def make_list(teams):
+def make_list(dict): # Takes the previous dictionary and makes it into a list. Adds country element.
     list = []
-
-    for i in teams:
+    for i in dict:
         teams_2 = {}
         teams_2["country"] = i
-        teams_2.update(teams[])
+        teams_2.update(dict[i])
         list.append(teams_2)
-
     teams = list
     return teams
 
-make_list(teams)
 print("-"*20)
-print(make_list(teams))
+teams = make_list(teams)
+print(teams)
+print("-"*20)
+
+# 14.6:
+
+# Create a function named print_table(list).
+# Two extra columns; GD, goal difference is difference between goals for and against.
+# P is points, is calculated by multiplying the wins by 3 and adding the draws.
+
+def print_table(list):
+    num = 1
+    print("-"*40)
+    print("| # | Nation | W | D | L | GF | GA | GD | P |" )
+    print("-" * 30)
+    for i in list:
+        nation = i["country"]
+        w = i["wins"]
+        d = i["draws"]
+        l = i["losses"]
+        gf = i["goals_for"]
+        ga = i["goals_against"]
+        gd = int(gf) - int(ga)
+        p = (int(w) * 3) + int(d)
+
+        print(f"| {num} | {nation} | {w} | {d} | {l} | {gf} | {ga} | {gd} | {p} | ")
+        num += 1
+    print("-" * 30)
 
 
 
-
-
-
-
-
+print_table(teams)
