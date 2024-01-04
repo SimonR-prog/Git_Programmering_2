@@ -155,6 +155,28 @@ def print_table(list):
         num += 1
     print("-" * 30)
 
-
-
 print_table(teams)
+
+
+# 15.1:
+
+persons = ["Alice", "Lucas","Olivia","Liam","Astrid","William"]
+sorted_persons = sorted(persons)
+
+for name in sorted_persons:
+    print("[ ]", name)
+
+# 15.2:
+
+import random
+numbers = []
+for x in range(10):
+    numbers.append(random.randint(0,20))
+print("Before sorting; ")
+for i in numbers:
+    print("-", i)
+sorted_numbers = sorted(numbers)
+print("After sorting; ")
+for i in sorted_numbers:
+    print("-", i)
+
