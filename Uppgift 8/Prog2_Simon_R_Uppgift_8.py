@@ -33,6 +33,10 @@ teams = {
 }
 
 def add_game(home_team, home_score, away_team, away_score):
+    """
+    Function takes input in the form of team names and an integer as scores.
+    Function will then add the scores to the value of the keys depending on results."""
+
     teams[home_team]["goals_for"] += home_score
     teams[home_team]["goals_against"] += away_score
     teams[away_team]["goals_for"] += away_score
@@ -48,7 +52,11 @@ def add_game(home_team, home_score, away_team, away_score):
         teams[home_team]["losses"] += 1
 
 # 14.5:
-def make_list(dict): # Takes the previous dictionary and makes it into a list. Adds country element.
+def make_list(dict):
+    """
+    Function takes the previous dictionary and makes it into a list while
+        turning the country name into the value of a "country"-key.
+    Returns updated dictionaries inside a list."""
     list = []
     for i in dict:
         teams_2 = {}
@@ -59,8 +67,12 @@ def make_list(dict): # Takes the previous dictionary and makes it into a list. A
     return teams
 
 # 15.3:
-
 def sort_list(list):
+    """
+    Function uses a for loop to add a new key with the points calculated as value.
+    Uses lambda in place of another function to return the dict["points"] value
+        to be able to use the sorted function.
+    Returns a list of teams sorted by the points made with the highest points at the top."""
     for i in list:
         points = (int(i["wins"]) * 3) + int(i["draws"])
         i["points"] = points
@@ -69,10 +81,16 @@ def sort_list(list):
 
 # 14.6:
 def print_table(list):
+    """
+    Function takes input in the form of a list of dictionaries.
+    Uses a formatted string (txt) to first print out the header.
+    Then uses a for loop to print the dictionaries in the list."""
+    width = 47
     num = 1
-    print("-"*40)
-    print("| # |", " Nation".ljust(14), "| W | D | L | GF | GA | GD | P |" )
-    print("-" * 30)
+    txt = "{:<12}|{:^3}|{:^3}|{:^3}|{:^3}|{:^3}|{:^3}|{:^3}|"
+    print("-" * width)
+    print("| # |", txt.format("Nation","W","D","L","GF","GA","GD","P"))
+    print("-" * width)
     for i in list:
         nation = i["country"]
         w = i["wins"]
@@ -82,12 +100,11 @@ def print_table(list):
         ga = i["goals_against"]
         gd = int(gf) - int(ga)
         p = (int(w) * 3) + int(d)
-        print(f"| {num} |",f" {nation} ".ljust(14),f"| {w} | {d} | {l} | {gf} | {ga} | {gd} | {p} | ")
+        print(f"| {num} |", txt.format(nation, w, d, l, gf, ga, gd, p))
         num += 1
-    print("-" * 30)
+    print("-" * width)
 
 # 15.3:
-
 add_game("Costa Rica", 0, "Serbia", 1)
 add_game("Brazil", 1, "Switzerland", 1)
 add_game("Brazil", 2, "Costa Rica", 0)
@@ -101,3 +118,13 @@ print_table(teams_list_sorted)
 
 
 
+
+
+"""
+print("-"*40)
+print(teams)
+print("-"*40)
+print(teams_list)
+print("-"*40)
+print(teams_list_sorted)
+"""
