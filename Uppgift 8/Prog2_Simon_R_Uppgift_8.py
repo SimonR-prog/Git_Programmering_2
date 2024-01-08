@@ -36,7 +36,6 @@ def add_game(home_team, home_score, away_team, away_score):
     """
     Function takes input in the form of team names and an integer as scores.
     Function will then add the scores to the value of the keys depending on results."""
-
     teams[home_team]["goals_for"] += home_score
     teams[home_team]["goals_against"] += away_score
     teams[away_team]["goals_for"] += away_score
@@ -115,16 +114,3 @@ add_game("Switzerland", 2, "Costa Rica", 2)
 teams_list = make_list(teams)
 teams_list_sorted = sort_list(teams_list)
 print_table(teams_list_sorted)
-
-
-
-
-
-"""
-print("-"*40)
-print(teams)
-print("-"*40)
-print(teams_list)
-print("-"*40)
-print(teams_list_sorted)
-"""
