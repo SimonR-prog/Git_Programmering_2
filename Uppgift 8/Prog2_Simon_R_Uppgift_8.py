@@ -34,7 +34,7 @@ teams = {
 
 def add_game(home_team: str, home_score: int, away_team: str, away_score: int):
     """
-    Function takes input in the form of team names and an integer as scores.
+    Function takes input in the form of strings for team name and integers for score.
     Function will then add the scores to the value of the keys depending on results."""
     teams[home_team]["goals_for"] += home_score
     teams[home_team]["goals_against"] += away_score
